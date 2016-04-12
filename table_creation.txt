@@ -2,8 +2,8 @@ CREATE TABLE user (
      user_id INT NOT NULL AUTO_INCREMENT,
      email VARCHAR(30) NOT NULL,
      password VARCHAR(30) NOT NULL,
-     created DATETIME NOT NULL,
-     lastUpdated DATETIME NOT NULL,
+     created DATETIME NOT NULL DEFAULT NOW(),
+     lastUpdated DATETIME ,
   PRIMARY KEY (user_id)
 );
 
@@ -14,9 +14,14 @@ CREATE TABLE notes(
      title VARCHAR(50) NOT NULL,
      note VARCHAR(1000) ,
      user_id INT NOT NULL,
-     created DATETIME NOT NULL,
-     lastUpdated DATETIME,
+     created DATETIME NOT NULL DEFAULT NOW(),
+     lastUpdated DATETIME ,
   PRIMARY KEY (note_id),
  FOREIGN KEY (user_id)
       REFERENCES user(user_id)
 );
+
+
+
+INSERT INTO user (email , password )
+VALUES ('abcPrint@gmail.com', 'passw0rd' );
